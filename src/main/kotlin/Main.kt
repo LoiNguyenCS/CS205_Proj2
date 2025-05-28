@@ -1,6 +1,7 @@
 package org.example
 
 import org.example.ucr.loi.cs205.proj2.parser.DatasetParser
+import org.example.ucr.loi.cs205.proj2.search.ForwardSearch
 import java.io.File
 
 fun main() {
@@ -9,4 +10,6 @@ fun main() {
 
     println("Parsed ${instances.size} instances.")
     println("First instance: ${instances.firstOrNull()}")
+    val forwardSearch = ForwardSearch()
+    println(forwardSearch.selectFeatures(instances))
 }
