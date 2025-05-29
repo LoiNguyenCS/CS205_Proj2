@@ -5,8 +5,13 @@ import org.example.ucr.loi.cs205.proj2.instance.Instance
 class ForwardSearch : FeatureSearch {
 
     /**
-     * This function uses forward search to find the best subset of features to apply NN for a list of instances.\
-     * This function relies on leave-one-out cross validation to measure accuracy.
+     * This function performs forward feature selection using leave-one-out cross-validation
+     * and 1-nearest neighbor classification to find the most effective subset of features.
+     *
+     * At each step, this method evaluates the accuracy of adding each remaining feature
+     * to the current subset, and greedily selects the one that most improves performance.
+     * The process continues until all features are used.
+     *
      * @param instances a list of input instances
      * @return the best subset of features
      */
