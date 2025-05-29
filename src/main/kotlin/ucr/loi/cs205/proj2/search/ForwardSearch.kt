@@ -4,6 +4,12 @@ import org.example.ucr.loi.cs205.proj2.instance.Instance
 
 class ForwardSearch : FeatureSearch {
 
+    /**
+     * This function uses forward search to find the best subset of features to apply NN for a list of instances.\
+     * This function relies on leave-one-out cross validation to measure accuracy.
+     * @param instances a list of input instances
+     * @return the best subset of features
+     */
     override fun selectFeatures(instances: List<Instance>): List<Int> {
         val totalFeatures = instances[0].features.size
         val allFeatures = (0 until totalFeatures).toList()

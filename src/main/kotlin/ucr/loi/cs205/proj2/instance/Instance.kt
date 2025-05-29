@@ -1,5 +1,8 @@
 package org.example.ucr.loi.cs205.proj2.instance
 
+/**
+ * An instance to be classified.
+ */
 data class Instance (
     val classBelonged: Int,
     val features: DoubleArray

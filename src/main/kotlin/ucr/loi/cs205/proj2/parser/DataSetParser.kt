@@ -5,6 +5,12 @@ import java.io.File
 
 object DatasetParser {
 
+    /**
+     * This function takes a dataset file as input and return a list of instances.
+     *
+     * @param file a dataset where the first column is the last, and remaining columns are features.
+     * @return a list of Instance
+     */
     fun parse(file: File): List<Instance> = file.readLines()
         .asSequence()
         .filter { it.isNotBlank() }
