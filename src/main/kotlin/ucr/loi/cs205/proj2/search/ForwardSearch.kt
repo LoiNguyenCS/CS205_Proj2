@@ -21,15 +21,11 @@ class ForwardSearch : FeatureSearch {
         val selected = mutableListOf<Int>()
         val available = allFeatures.toMutableSet()
 
-        println("Dataset Summary:")
-        println("Number of instances: ${instances.size}")
-        println("Number of available features (excluding class label): $totalFeatures")
-
+        println("This dataset has ${totalFeatures} features (not including the class attribute), with ${instances.size} instances.")
         val fullAccuracy = crossValidationAccuracy(instances, allFeatures)
-        println("Baseline Accuracy:")
-        println("Using all features with leave-one-out evaluation: $fullAccuracy accuracy%\n")
+        println("Running nearest neighbor with all $totalFeatures features, using “leaving-one-out” evaluation, I get an accuracy of $fullAccuracy%\n")
 
-        println("Starting Forward Feature Selection...")
+        println("Beginning Search...")
 
         var bestSet = emptyList<Int>()
         var bestSoFarAccuracy = 0.0
@@ -41,7 +37,7 @@ class ForwardSearch : FeatureSearch {
             for (feature in available) {
                 val trial = selected + feature
                 val acc = crossValidationAccuracy(instances, trial)
-                println("Using feature(s) $trial accuracy is $acc%")
+                println("   Using feature(s) $trial accuracy is $acc%")
                 if (acc > levelBestAccuracy) {
                     levelBestAccuracy = acc
                     levelBestFeature = feature
