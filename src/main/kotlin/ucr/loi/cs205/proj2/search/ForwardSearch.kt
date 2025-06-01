@@ -35,9 +35,9 @@ class ForwardSearch : FeatureSearch {
             var levelBestAccuracy = -1.0
 
             for (feature in available) {
-                val trial = selected + feature
+                val trial = (selected + feature)
                 val acc = crossValidationAccuracy(instances, trial)
-                println("   Using feature(s) $trial accuracy is $acc%")
+                println("   Using feature(s) ${trial.toOneBasedString()} accuracy is $acc%")
                 if (acc > levelBestAccuracy) {
                     levelBestAccuracy = acc
                     levelBestFeature = feature
@@ -47,7 +47,7 @@ class ForwardSearch : FeatureSearch {
             if (levelBestFeature != null) {
                 selected += levelBestFeature
                 available -= levelBestFeature
-                println("Feature set $selected was best, accuracy is $levelBestAccuracy%")
+                println("Feature set ${selected.toOneBasedString()} was best, accuracy is $levelBestAccuracy%")
 
                 if (levelBestAccuracy > bestSoFarAccuracy) {
                     bestSoFarAccuracy = levelBestAccuracy
@@ -56,7 +56,7 @@ class ForwardSearch : FeatureSearch {
             } else break
         }
 
-        println("Finished search!! The best feature subset is $bestSet, which has an accuracy of $bestSoFarAccuracy%")
+        println("Finished search!! The best feature subset is ${bestSet.toList().toOneBasedString()}, which has an accuracy of $bestSoFarAccuracy%")
         return bestSet
     }
 }

@@ -58,7 +58,4 @@ class BackwardElimination : FeatureSearch {
         println("Finished search!! The best feature subset is ${bestSet.toOneBasedString()}, which has an accuracy of ${bestSoFarAccuracy}%")
         return bestSet
     }
-
-    private fun List<Int>.toOneBasedString(): String =
-        joinToString(prefix = "{", postfix = "}") { (it + 1).toString() }
 }

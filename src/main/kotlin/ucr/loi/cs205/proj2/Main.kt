@@ -4,6 +4,7 @@ import org.example.ucr.loi.cs205.proj2.parser.DatasetParser
 import org.example.ucr.loi.cs205.proj2.search.BackwardElimination
 import org.example.ucr.loi.cs205.proj2.search.ForwardSearch
 import org.example.ucr.loi.cs205.proj2.search.FeatureSearch
+import org.example.ucr.loi.cs205.proj2.search.crossValidationAccuracy
 import java.io.File
 
 fun main() {

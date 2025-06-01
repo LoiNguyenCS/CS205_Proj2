@@ -22,3 +22,9 @@ fun crossValidationAccuracy(instances: List<Instance>, featureIndices: List<Int>
     }
     return String.format("%.4f", correct.toDouble() / instances.size * 100).toDouble()
 }
+
+/**
+ * Print out a list in a one-based format, i.e the first index is 1, not 0.
+ */
+fun List<Int>.toOneBasedString(): String =
+    joinToString(prefix = "{", postfix = "}") { (it + 1).toString() }
