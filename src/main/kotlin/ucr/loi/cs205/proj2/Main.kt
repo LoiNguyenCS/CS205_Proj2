@@ -31,6 +31,6 @@ fun main() {
         }
     }
 
-    val instances = DatasetParser.parse(File(moveClassLabelToFront(fileNameWithPath)))
+    val instances = DatasetParser.parse(File(fileNameWithPath))
     selector.selectFeatures(instances)
 }
