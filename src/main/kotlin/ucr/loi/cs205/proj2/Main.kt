@@ -5,11 +5,10 @@ import org.example.ucr.loi.cs205.proj2.search.BackwardElimination
 import org.example.ucr.loi.cs205.proj2.search.ForwardSearch
 import org.example.ucr.loi.cs205.proj2.search.FeatureSearch
 import org.example.ucr.loi.cs205.proj2.search.crossValidationAccuracy
+import ucr.loi.cs205.proj2.parser.moveClassLabelToFront
 import java.io.File
 
 fun main() {
-    println("Welcome to Bertie Wooster's Feature Selection Algorithm.")
-
     println("Type in the name of the file to test: (pick one in the dataset folder) ")
     val fileName = readlnOrNull()?.trim()
     val fileNameWithPath =  "src/dataset/$fileName"
@@ -17,6 +16,7 @@ fun main() {
         println("Invalid file.")
         return
     }
+
     println("Type the number of the algorithm you want to run.")
     println("1) Forward Selection")
     println("2) Backward Elimination")
@@ -31,6 +31,6 @@ fun main() {
         }
     }
 
-    val instances = DatasetParser.parse(File(fileNameWithPath))
+    val instances = DatasetParser.parse(File(moveClassLabelToFront(fileNameWithPath)))
     selector.selectFeatures(instances)
 }
